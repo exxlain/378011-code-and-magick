@@ -12,7 +12,7 @@ var getColor = function (isYou) {
     if (isYou) {
         return 'rgba(255, 0, 0, 1)';
     } else {
-        return 'rgba(0, 50, 255, ' + Math.random() + ')';
+        return 'rgba(0, 50, 255, ' + (Math.random() * 0.9 + 0.1) + ')';
     }
 };
 var generateText = function (ctx, text, color, coordinateX, coordinateY) {
