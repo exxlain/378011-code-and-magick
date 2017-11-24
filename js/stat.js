@@ -1,4 +1,11 @@
 'use strict';
+var getColor = function (isYou) {
+    if (isYou) {
+        return 'rgba(255, 0, 0, 1)';
+    } else {
+        return 'rgba(0, 50, 255, ' + (Math.random() * 0.9 + 0.1) + ')';
+    }
+};
 var findMaxTime = function (arr) {
     var max = -1;
     for (var i = 0; i < arr.length; i++) {
@@ -9,13 +16,7 @@ var findMaxTime = function (arr) {
     }
     return max;
 };
-var getColor = function (isYou) {
-    if (isYou) {
-        return 'rgba(255, 0, 0, 1)';
-    } else {
-        return 'rgba(0, 50, 255, ' + (Math.random() * 0.9 + 0.1) + ')';
-    }
-};
+
 var generateText = function (ctx, text, color, coordinateX, coordinateY) {
     ctx.fillStyle = color;
     ctx.font = '16px PT Mono';
