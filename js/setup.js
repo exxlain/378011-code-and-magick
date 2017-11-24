@@ -17,7 +17,7 @@ var createWizardsArray = function (lengthArray) {
         });
     }
     return wizards;
-}
+};
 
 var wizards = createWizardsArray(4);
 
@@ -30,7 +30,7 @@ var similarListElement = userDialog.querySelector('.setup-similar-list');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-var renderWizard = function(wizard) {
+var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
@@ -38,7 +38,7 @@ var renderWizard = function(wizard) {
     wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
     return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < wizards.length; i++) {
