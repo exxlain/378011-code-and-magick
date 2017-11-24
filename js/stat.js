@@ -1,3 +1,4 @@
+'use strict';
 var findMaxTime = function (arr) {
     var max = -1;
     for (var i = 0; i < arr.length; i++) {
