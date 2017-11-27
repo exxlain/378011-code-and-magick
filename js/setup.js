@@ -8,8 +8,9 @@ var getRandom = function (arr) {
     var rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
 };
-var wizards = [];
+
 var createWizardsArray = function (lengthArray) {
+    var wizards = [];
     for (var i = 1; i <= lengthArray; i++) {
         wizards.push({
             name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZARD_SURNAMES),
@@ -20,7 +21,7 @@ var createWizardsArray = function (lengthArray) {
     return wizards;
 };
 
-createWizardsArray(4);
+var wizardsArray = createWizardsArray(4);
 
 var userDialog = document.querySelector('.setup');
 userDialog.classList.remove('hidden');
@@ -46,6 +47,7 @@ var fillFragment = function (arr) {
   }
   similarListElement.appendChild(fragment);
 }
-fillFragment(wizards);
+fillFragment(wizardsArray);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
