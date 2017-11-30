@@ -64,11 +64,13 @@ var wizardFireball = setup.querySelector('.setup-fireball-wrap');
 var openPopup = function () {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
+
 };
 
 var closePopup = function () {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+
 };
 
 setupOpen.addEventListener('click', function() {
@@ -94,18 +96,6 @@ setupClose.addEventListener ('click', function() {
 
 setupClose.addEventListener ('keydown', function(evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
-        closePopup();
-    }
-});
-
-setupSave.addEventListener ('click', function() {
-    event.preventDefault();
-    closePopup();
-});
-
-setupSave.addEventListener ('keydown', function(evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-        event.preventDefault();
         closePopup();
     }
 });
