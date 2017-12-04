@@ -1,4 +1,6 @@
 'use strict';
+/*генерация статистики*/
+(function () {
 var getColor = function (isYou) {
     if (isYou) {
         return 'rgba(255, 0, 0, 1)';
@@ -83,3 +85,4 @@ window.renderStatistics = function (ctx, names, times) {
         generateBar(ctx, color, initialX + indent * i + barWidth * i, initialY - times[i] * step, barWidth, times[i] * step);
     }
 };
+})();
