@@ -46,7 +46,7 @@
 
     /*возможность перетаскивания диалога*/
     var dialogHandle = setup.querySelector('.setup-user-pic');
-
+    dialogHandle.style.zIndex = 1000;
     var DialogMove = function (evt) {
         evt.preventDefault();
 
