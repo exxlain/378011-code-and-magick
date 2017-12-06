@@ -91,8 +91,8 @@
 
     shopElement.addEventListener('dragstart', function(evt) {
         if (evt.target.tagName.toLowerCase() === 'img') {
-            artifactsElement.classList.add('setup-artifacts-shop-outline');
-            draggedItem = evt.target;
+             artifactsElement.style.outline = '2px dashed red';
+             draggedItem = evt.target;
             evt.dataTransfer.setData('text/plain', evt.target.alt);
         }
     });
@@ -110,7 +110,7 @@
     });
 
     artifactsElement.addEventListener('dragenter', function(evt) {
-        artifactsElement.classList.remove('setup-artifacts-shop-outline');
+        artifactsElement.style.outline = '';
         evt.target.style.backgroundColor = 'yellow';
         evt.preventDefault();
     });

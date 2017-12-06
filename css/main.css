@@ -658,9 +658,6 @@ input[type=radio]:checked + .review-mark-label {
   width: 716px;
   height: 65px;
 }
-.setup-artifacts-shop-outline {
-  outline: 2px dashed red;
-}
 .setup-player {
   padding-top: 20px;
   position: relative;
