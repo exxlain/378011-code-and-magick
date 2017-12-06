@@ -658,7 +658,6 @@ input[type=radio]:checked + .review-mark-label {
   width: 716px;
   height: 65px;
 }
-
 .setup-player {
   padding-top: 20px;
   position: relative;
