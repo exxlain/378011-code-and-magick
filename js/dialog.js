@@ -3,9 +3,8 @@
     var setup = document.querySelector('.setup');
     var setupOpen = document.querySelector('.setup-open');
     var setupClose = setup.querySelector('.setup-close');
-    var setupSave = setup.querySelector('.setup-submit');
     var inputName = setup.querySelector('.setup-user-name');
-
+    var form = setup.querySelector('.setup-wizard-form');
     /*открытие и закрытие окна*/
 
     var openPopup = function () {
@@ -43,6 +42,13 @@
         window.util.isEnterEvent(evt, closePopup);
     });
 
+/*отправка формы*/
+  form.addEventListener('submit', function (evt) {
+      window.backend.save(new FormData(form), function (response) {
+        closePopup();
+      });
+      evt.preventDefault();
+    });
 
     /*возможность перетаскивания диалога*/
     var dialogHandle = setup.querySelector('.setup-user-pic');
