@@ -2,18 +2,16 @@
 /*модуль загрузки  и отрисовки похожих магов */
 (function() {
 
-    var coatColor;
-    var eyesColor;
     var wizards = [];
 
 /*система "отличности" одного мага от другого*/
     var getRank = function (wizard) {
         var rank = 0;
 
-        if (wizard.colorCoat === coatColor) {
+        if (wizard.colorCoat === window.myWizard.coatColor) {
             rank += 2;
         }
-        if (wizard.colorEyes === eyesColor) {
+        if (wizard.colorEyes === window.myWizard.eyesColor) {
             rank += 1;
         }
 
@@ -32,33 +30,27 @@
     };
 
 /*функция фильтрации*/
-    var updateWizards = function () {
-        window.render(wizards.sort(function(left, right) {
-            var rankDiff = getRank(right) - getRank(left);
-            if (rankDiff === 0) {
-                rankDiff = namesComparator(left.name, right.name);
-            }
-            return rankDiff;
-        }));
-    };
+  var wizardsComparator = function (left, right) {
+    var rankDiff = getRank(right) - getRank(left);
+    return rankDiff === 0 ? namesComparator(left.name, right.name) : rankDiff;
+  };
 
 
 /*выполнение фильтрации*/
-    window.wizard.onEyesChange = function (color) {
-        eyesColor = color;
-        window.debounce(updateWizards);
-    };
 
-    window.wizard.onCoatChange = function (color) {
-            coatColor = color;
-            window.debounce(updateWizards);
-        };
+  var updateFilter = function () {
+    window.render(wizards.sort(wizardsComparator));
+  };
+
+  window.myWizard.onChange = function () {
+    updateFilter();
+  };
 
 
   /*  обработчик успешной загрузки*/
     var successHandler = function(data) {
         wizards = data;
-        updateWizards();
+        updateFilter();
     };
 
     /*  обработчик ошибки*/

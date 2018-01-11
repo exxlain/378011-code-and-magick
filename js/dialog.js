@@ -52,7 +52,6 @@
 
   /*возможность перетаскивания диалога*/
   var dialogHandler = setup.querySelector('.upload');
-  /* dialogHandle.style.zIndex = 1000;*/
   var DialogMove = function(evt) {
     evt.preventDefault();
 
